@@ -1,0 +1,6 @@
+.env
+.*.sw*
+.pwd
+*.log
+backup
+nodes
