@@ -47,6 +47,7 @@ pm2 start ${TOMOCHAIN_PROJECT_DIR}/build/bin/tomo --name node01 -- \
     --syncmode "full" --datadir ./nodes/1 --networkid 89 --port 30303 \
     --tomox --tomox.datadir "$WORK_DIR/nodes/1/tomox" --tomox.dbengine "leveldb" \
     --announce-txs \
+    --tomo-testnet \
     --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8545 --rpcvhosts "*" \
     --rpcapi "personal,db,eth,net,web3,txpool,miner,tomox" \
     --ws --wsaddr 0.0.0.0 --wsport 8546 --wsorigins "*" --unlock "${wallet1}" \
@@ -56,6 +57,7 @@ pm2 start ${TOMOCHAIN_PROJECT_DIR}/build/bin/tomo --name node01 -- \
 pm2 start ${TOMOCHAIN_PROJECT_DIR}/build/bin/tomo --name node02 -- \
     --bootnodes "enode://7d8ffe6d28f738d8b7c32f11fb6daa6204abae990a842025b0a969aabdda702aca95a821746332c2e618a92736538761b1660aa9defb099bc46b16db28992bc9@127.0.0.1:30301" \
     --syncmode "full" --datadir ./nodes/2 --networkid 89 --port 30304 \
+    --tomo-testnet \
     --tomox --tomox.datadir "$WORK_DIR/nodes/2/tomox" --tomox.dbengine "leveldb" \
     --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8501 --rpcvhosts "*" \
     --unlock "${wallet2}" --password ./.pwd --mine --gasprice "${GASPRICE}" --targetgaslimit "420000000" \
@@ -65,6 +67,7 @@ pm2 start ${TOMOCHAIN_PROJECT_DIR}/build/bin/tomo --name node02 -- \
 pm2 start ${TOMOCHAIN_PROJECT_DIR}/build/bin/tomo --name node03 -- \
     --bootnodes "enode://7d8ffe6d28f738d8b7c32f11fb6daa6204abae990a842025b0a969aabdda702aca95a821746332c2e618a92736538761b1660aa9defb099bc46b16db28992bc9@127.0.0.1:30301" \
     --syncmode "full" --datadir ./nodes/3 --networkid 89 --port 30305 \
+    --tomo-testnet \
     --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8548 --rpcvhosts "*" \
     --tomox --tomox.datadir "$WORK_DIR/nodes/3/tomox" --tomox.dbengine "leveldb" \
     --unlock "${wallet3}" --password ./.pwd --mine --gasprice "${GASPRICE}" \
@@ -75,6 +78,7 @@ pm2 start ${TOMOCHAIN_PROJECT_DIR}/build/bin/tomo --name node04 -- \
     --bootnodes "enode://7d8ffe6d28f738d8b7c32f11fb6daa6204abae990a842025b0a969aabdda702aca95a821746332c2e618a92736538761b1660aa9defb099bc46b16db28992bc9@127.0.0.1:30301" \
     --syncmode "full" --datadir ./nodes/4 --networkid 89 --port 30306 \
     --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8549 --rpcvhosts "*" \
+    --tomo-testnet \
     --rpcapi "personal,db,eth,net,web3,txpool,miner,tomox" \
     --tomox --tomox.datadir "$WORK_DIR/nodes/4/tomox" --tomox.dbengine "mongodb" \
     --unlock "${wallet4}" --password ./.pwd --mine --gasprice "${GASPRICE}" \
