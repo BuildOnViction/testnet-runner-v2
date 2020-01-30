@@ -4,7 +4,7 @@ export $(cat .env | xargs)
 WORK_DIR=$PWD
 TOMOCHAIN_DIR="${TOMOCHAIN_DIR:-${HOME}/go/src/github.com/tomochain/tomochain}"
 TOMOXSDK_DIR="${TOMOXSDK_DIR:-${HOME}/go/src/github.com/tomochain/tomox-sdk}"
-TOMOXSDK_UI_DIR="${TOMOXSDK_DIR:-${HOME}/tomox-sdk-ui}"
+TOMOXSDK_UI_DIR="${TOMOXSDK_UI_DIR:-${HOME}/tomox-sdk-ui}"
 BOT_DIR="${BOT_DIR:-${HOME}/tomox-market-maker}"
 TOMORELAYER_DIR="${TOMORELAYER_DIR:-${HOME}/tomorelayer}"
 WALLET_DIR="${WALLET_DIR:-${HOME}/tomowallet-web}"
