@@ -92,6 +92,6 @@ if $ISRESET
 then
     echo Sleep 20 seconds ...
     sleep 10
-    cd ${TOMOCHAIN_DIR}/contracts/tomox/simulation/deploy && go run main.go
+    cd ${TOMOCHAIN_DIR}/contracts/tomox/testnet/deploy && go run main.go
     sleep 10
 fi
