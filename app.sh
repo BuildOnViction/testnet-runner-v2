@@ -21,20 +21,16 @@ echo Starting tomox-sdk ...
 cd ${TOMOXSDK_DIR} && pm2 start ./tomox-sdk --name tomox-sdk
 cd ${TOMOXSDK_UI_DIR} && pm2 start npm --name tomox-sdk-ui -- start
 
+echo Starting tomorelayer ...
+cd ${TOMORELAYER_DIR} && HOST=0.0.0.0 PORT=3002 pm2 start --name tomorelayer-client npm -- start
+cd ${TOMORELAYER_DIR} && ENV_PATH=.env pipenv run pm2 start --name tomorelayer-server python -- ./backend/app.py --port=3003
+
 echo Sleep 30 seconds ...
 sleep 30
 echo Starting bot ...
 cd ${BOT_DIR} && pm2 start cmd.js --name bot_TOMOBTC -- bot TOMO-BTC
 cd ${BOT_DIR} && pm2 start cmd.js --name bot_ETHTOMO -- bot ETH-TOMO
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_XRPTOMO -- bot XRP-TOMO
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_LTCTOMO -- bot LTC-TOMO
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_BNBTOMO -- bot BNB-TOMO
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_ADATOMO -- bot ADA-TOMO
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_ETCTOMO -- bot ETC-TOMO
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_BCHTOMO -- bot BCH-TOMO
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_EOSTOMO -- bot EOS-TOMO
 cd ${BOT_DIR} && pm2 start cmd.js --name bot_ETHBTC -- bot ETH-BTC
-cd ${BOT_DIR} && pm2 start cmd.js --name bot_XRPBTC -- bot XRP-BTC
 cd ${BOT_DIR} && pm2 start cmd.js --name bot_TOMOUSD -- bot TOMO-USD
 cd ${BOT_DIR} && pm2 start cmd.js --name bot_BTCUSD -- bot BTC-USD
 cd ${BOT_DIR} && pm2 start cmd.js --name bot_ETHUSD -- bot ETH-USD
