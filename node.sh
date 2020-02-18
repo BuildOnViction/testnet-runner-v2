@@ -4,6 +4,8 @@ export $(cat .env | xargs)
 
 WORK_DIR=$PWD
 TOMOCHAIN_DIR="${HOME}/go/src/github.com/tomochain/tomochain"
+PRIVACY_SC_DIR="${PRIVACY_SC_DIR:-${HOME}/privacy-sc}"
+PRIVACYJS_DIR="${PRIVACYJS_DIR:-${HOME}/privacyjs}"
 GO111MODULE=on
 cd $TOMOCHAIN_DIR && make tomo
 cd $WORK_DIR
@@ -80,6 +82,8 @@ pm2 start ${TOMOCHAIN_DIR}/build/bin/tomo --name node04 -- \
     --bootnodes "enode://7d8ffe6d28f738d8b7c32f11fb6daa6204abae990a842025b0a969aabdda702aca95a821746332c2e618a92736538761b1660aa9defb099bc46b16db28992bc9@127.0.0.1:30301" \
     --syncmode "full" --datadir ./nodes/4 --networkid 89 --port 30306 \
     --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8549 --rpcvhosts "*" \
+    --ws --wsaddr 0.0.0.0 --wsport 8550 --wsorigins "*" \
+	--ethstats "sun:anna-coal-flee-carrie-zip-hhhh-tarry-laue-felon-rhine@localhost:3004" \
     --tomo-testnet \
     --gcmode "archive" \
     --rpcapi "personal,db,eth,net,web3,txpool,miner,tomox,debug" \
@@ -94,4 +98,7 @@ then
     sleep 10
     cd ${TOMOCHAIN_DIR}/contracts/tomox/testnet/deploy && go run main.go
     sleep 10
+    cd ${PRIVACY_SC_DIR} && truffle deploy --network testnet
+    sleep 10
+    cd ${PRIVACYJS_DIR} && npm run testcase deposit
 fi
